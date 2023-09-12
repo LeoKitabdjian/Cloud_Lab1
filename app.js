@@ -14,11 +14,11 @@ require('dotenv').config();
 
 const sequelize = new Sequelize({
   dialect: 'postgres',
-  host: process.env.DBHOST,
-  port: process.env.DBPORT,
-  database: process.env.DBNAME,
-  username: process.env.DBUSER,
-  password: process.env.DBPW
+  host: process.env.POSTGRESQL_ADDON_HOST,
+  port: process.env.POSTGRESQL_ADDON_PORT,
+  database: process.env.POSTGRESQL_ADDON_DB,
+  username: process.env.POSTGRESQL_ADDON_USER,
+  password: process.env.POSTGRESQL_ADDON_PASSWORD
 })
 
 sequelize.authenticate().then(() => {

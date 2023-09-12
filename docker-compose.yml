@@ -6,11 +6,11 @@ services:
     ports:
       - "8080:8080"
     environment:
-      - DBUSER=si5_sacc
-      - DBHOST=database
-      - DBNAME=td_1
-      - DBPW=dev_password
-      - DBPORT=5432
+      - POSTGRESQL_ADDON_USER=si5_sacc
+      - POSTGRESQL_ADDON_HOST=database
+      - POSTGRESQL_ADDON_DB=td_1
+      - POSTGRESQL_ADDON_PASSWORD=dev_password
+      - POSTGRESQL_ADDON_PORT=5432
     depends_on:
       - database
 
