@@ -6,8 +6,26 @@ var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+const {Sequelize} = require("sequelize");
 
 var app = express();
+
+require('dotenv').config();
+
+const sequelize = new Sequelize({
+  dialect: 'postgres',
+  host: process.env.DBHOST,
+  port: process.env.DBPORT,
+  database: process.env.DBNAME,
+  username: process.env.DBUSER,
+  password: process.env.DBPW
+})
+
+sequelize.authenticate().then(() => {
+  console.log('Connection has been established successfully.');
+}).catch(error => {
+  console.error('Unable to connect to the database:', error);
+});
 
 app.use(logger('dev'));
 app.use(express.json());
